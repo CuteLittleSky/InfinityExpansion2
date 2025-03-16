@@ -663,7 +663,6 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'I' means INFINITY_INGOT
             'E' means getSlimefunItem("ADVANCED_MACHINE_BLOCK") ?: Material.BARRIER.toItem()
             'C' means getSlimefunItem("FORCEFIELD_DOME") ?: Material.BARRIER.toItem()
-            'D' means getSlimefunItem("UU_MATTER") ?: Material.BARRIER.toItem()
             'F' means getSlimefunItem("CRY_AMALGAMATE_DUST_UNCOMMON") ?: Material.BARRIER.toItem()
             'A' means getSlimefunItem("AV_ILLUMIUM") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("AV_DARKSTEEL") ?: Material.BARRIER.toItem()
@@ -1225,7 +1224,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"II  II"
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
-            'A' means getSlimefunItem("SOULBOUND_BOOT") ?: Material.BARRIER.toItem()
+            'A' means getSlimefunItem("SOULBOUND_BOOTS") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
         itemModifier = {
@@ -2048,7 +2047,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"PQOOQP"
             +"VHIIHV"
             +"VHIIHV"
-            +"V II V"
+            +"VDIIDV"
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
             'P' means MACHINE_PLATE
@@ -2058,6 +2057,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'Q' means QUARRY_3
             'E' means getSlimefunItem("ADVANCED_MACHINE_BLOCK") ?: Material.BARRIER.toItem()
             'H' means getSlimefunItem("IRIDIUM_PLATE") ?: Material.BARRIER.toItem()
+            'D' means getSlimefunItem("UU_MATTER") ?: Material.BARRIER.toItem()
         }
     }
 
