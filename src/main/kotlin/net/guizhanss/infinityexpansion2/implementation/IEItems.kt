@@ -653,7 +653,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = buildRecipe(6) {
             +"POIIOP"
-            +"OPEEPO"
+            +"OPMEPO"
             +"ICIIFI"
             +"ICIIFI"
             +"OPABPO"
@@ -667,6 +667,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'F' means getSlimefunItem("CRY_AMALGAMATE_DUST_UNCOMMON") ?: Material.BARRIER.toItem()
             'A' means getSlimefunItem("AV_ILLUMIUM") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("AV_DARKSTEEL") ?: Material.BARRIER.toItem()
+            'M' means getSlimefunItem("IE_INFINITY_MACHINE_CORE") ?: Material.BARRIER.toItem()
         }
     }
 
@@ -2034,7 +2035,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"PQOOQP"
             +"VHIIHV"
             +"VHIIHV"
-            +"VHIIHV"
+            +"V II V"
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
             'P' means MACHINE_PLATE
