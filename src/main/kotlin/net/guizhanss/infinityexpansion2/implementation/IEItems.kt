@@ -2027,6 +2027,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'C' means INFINITY_MACHINE_CIRCUIT
             'O' means INFINITY_MACHINE_CORE
             'Q' means QUARRY_3
+            'Q' means SlimefunItem.getById("ADVANCED_MACHINE_BLOCK")
         }
     }
 
@@ -2393,20 +2394,4 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         recipeType = RecipeType.NULL
     }
     //</editor-fold>
-<<<<<<< HEAD
-private fun getItem(id: String): ItemStack {
-    val sfItem = SlimefunItem.getById(id)
-    return if (sfItem != null) {
-        sfItem.item.clone()
-    } else {
-        InfinityExpansion2.instance.logger.warning("无法找到物品 $id，配方可能存在问题！")
-        ItemStack(Material.BARRIER).apply {
-            itemMeta = itemMeta?.apply {
-                setDisplayName("§cMissing: $id")
-            }
-        }
-    }
-=======
->>>>>>> parent of 3b57946 (Update IEItems.kt)
-}
 }
