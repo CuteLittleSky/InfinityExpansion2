@@ -2014,7 +2014,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = buildRecipe(6) {
-            +" PPPP "
+            +"EPPPPE"
             +"PACCAP"
             +"PQOOQP"
             +"V II V"
@@ -2027,7 +2027,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'C' means INFINITY_MACHINE_CIRCUIT
             'O' means INFINITY_MACHINE_CORE
             'Q' means QUARRY_3
-            'Q' means SlimefunItem.getById("ADVANCED_MACHINE_BLOCK")
+            'E' means SlimefunItem.getById("ADVANCED_MACHINE_BLOCK")
         }
     }
 
