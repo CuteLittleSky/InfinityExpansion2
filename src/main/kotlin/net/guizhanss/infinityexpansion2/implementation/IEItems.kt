@@ -2,7 +2,6 @@
 
 package net.guizhanss.infinityexpansion2.implementation
 
-import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.seggan.sf4k.item.builder.ItemRegistry
@@ -2027,7 +2026,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'C' means INFINITY_MACHINE_CIRCUIT
             'O' means INFINITY_MACHINE_CORE
             'Q' means QUARRY_3
-            'E' means SlimefunItem.getById("ADVANCED_MACHINE_BLOCK")
+            'E' means getSlimefunItemStack("ADVANCED_MACHINE_BLOCK")
         }
     }
 
