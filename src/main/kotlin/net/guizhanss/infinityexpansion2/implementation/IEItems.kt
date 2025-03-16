@@ -653,14 +653,20 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = buildRecipe(6) {
             +"POIIOP"
-            +"OPCCPO"
-            +"ICIICI"
-            +"ICIICI"
-            +"OPCCPO"
+            +"OPEEPO"
+            +"ICIIFI"
+            +"ICIIFI"
+            +"OPABPO"
             +"POIIOP"
             'P' means MACHINE_PLATE
             'O' means MACHINE_CORE
             'I' means INFINITY_INGOT
+            'E' means getSlimefunItem("ADVANCED_MACHINE_BLOCK") ?: Material.BARRIER.toItem()
+            'C' means getSlimefunItem("FORCEFIELD_DOME") ?: Material.BARRIER.toItem()
+            'D' means getSlimefunItem("UU_MATTER") ?: Material.BARRIER.toItem()
+            'F' means getSlimefunItem("CRY_AMALGAMATE_DUST_UNCOMMON") ?: Material.BARRIER.toItem()
+            'A' means getSlimefunItem("AV_ILLUMIUM") ?: Material.BARRIER.toItem()
+            'B' means getSlimefunItem("AV_DARKSTEEL") ?: Material.BARRIER.toItem()
         }
     }
 
@@ -1036,10 +1042,12 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"   IVI"
             +"   VII"
             +"  V  I"
-            +" V   V"
-            +"V     "
+            +"AV   V"
+            +"VB    "
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
+            'A' means getSlimefunItem("SOULBOUND_PICKAXE") ?: Material.BARRIER.toItem()
+            'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
         itemModifier = {
             applyInfinityGearEnchantment(it)
@@ -1055,10 +1063,12 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"VIIIV "
             +" IIVII"
             +"  VIII"
-            +" V IIV"
-            +"V   V "
+            +"AV IIV"
+            +"VB  V "
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
+            'A' means getSlimefunItem("SOULBOUND_PICKAXE") ?: Material.BARRIER.toItem()
+            'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
         itemModifier = {
             applyInfinityGearEnchantment(it)
@@ -1074,10 +1084,12 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"  IIII"
             +"  IVII"
             +"  VII "
-            +" V    "
-            +"V     "
+            +"AV    "
+            +"VB    "
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
+            'A' means getSlimefunItem("SOULBOUND_PICKAXE") ?: Material.BARRIER.toItem()
+            'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
         itemModifier = {
             applyInfinityGearEnchantment(it)
@@ -1093,10 +1105,12 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"  IIVI"
             +"   V  "
             +"  V   "
-            +" V    "
-            +"V     "
+            +"AV    "
+            +"VB    "
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
+            'A' means getSlimefunItem("SOULBOUND_PICKAXE") ?: Material.BARRIER.toItem()
+            'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
         itemModifier = {
             applyInfinityGearEnchantment(it)
@@ -1238,10 +1252,12 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"   IVI"
             +"  IVI "
             +"IIVI  "
-            +" VI   "
+            +"BVI   "
             +"V I   "
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
+            'B' means getSlimefunItem("ELUCIDATOR") ?: Material.BARRIER.toItem()
+            'A' means getSlimefunItem("IE_INFINITY_PICKAXE") ?: Material.BARRIER.toItem()
         }
         itemModifier = {
             applyInfinityGearEnchantment(it)
