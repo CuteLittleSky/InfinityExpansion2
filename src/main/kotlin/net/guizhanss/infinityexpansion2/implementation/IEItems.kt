@@ -1238,7 +1238,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = buildRecipe(6) {
-            +"II  II"
+            +"II BII"
             +"IVIIVI"
             +"IVIIVI"
             +"IVIIVI"
@@ -1246,6 +1246,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +" IVVI "
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
+            'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
         itemModifier = {
             applyInfinityGearEnchantment(it)
@@ -1278,7 +1279,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = buildRecipe(6) {
-            +" IIV  "
+            +"AIIV B"
             +"I IIV "
             +"V  EIV"
             +" V  II"
@@ -1287,6 +1288,8 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
             'E' means ENDER_FLAME
+            'A' means getSlimefunItem("SOULBOUND_BOW") ?: Material.BARRIER.toItem()
+            'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
         itemModifier = {
             applyInfinityGearEnchantment(it)
@@ -1298,7 +1301,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = buildRecipe(6) {
-            +" VIII "
+            +"AVIIIB"
             +"VIV  I"
             +"IVII V"
             +"I IIV "
@@ -1306,6 +1309,8 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +" IV II"
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
+            'A' means getSlimefunItem("SOULBOUND_BOW") ?: Material.BARRIER.toItem()
+            'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
         itemModifier = {
             applyInfinityGearEnchantment(it)
