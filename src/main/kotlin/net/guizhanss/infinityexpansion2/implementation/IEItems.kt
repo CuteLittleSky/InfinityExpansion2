@@ -2007,7 +2007,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'O' means MACHINE_CORE
         }
     }
-
+    private fun getSlimefunItem(id: String): ItemStack? {
+        return SlimefunItem.getById(id)?.item?.clone()
+    }
     val QUARRY_4 by buildSlimefunItem<Quarry>(36000, 64, 1.0) {
         material = Material.CHISELED_POLISHED_BLACKSTONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
@@ -2026,7 +2028,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'C' means INFINITY_MACHINE_CIRCUIT
             'O' means INFINITY_MACHINE_CORE
             'Q' means QUARRY_3
-            'E' means getSlimefunItemStack("ADVANCED_MACHINE_BLOCK")
+            'E' means getSlimefunItem("ADVANCED_MACHINE_BLOCK")
         }
     }
 
