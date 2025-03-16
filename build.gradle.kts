@@ -25,7 +25,7 @@ dependencies {
     compileOnly(kotlin("stdlib")) // loaded through library loader
     compileOnly(kotlin("reflect")) // loaded through library loader
     compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
-    compileOnly("com.github.Slimefun:Slimefun4:d12ae8580b")
+    compileOnly("com.github.SlimefunGuguProject:Slimefun4:-SNAPSHOT")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
     implementation("net.guizhanss:guizhanlib-all:2.2.0")
