@@ -2,6 +2,8 @@
 
 package net.guizhanss.infinityexpansion2.implementation
 
+import org.bukkit.Material
+import org.bukkit.inventory.ItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.seggan.sf4k.item.builder.ItemRegistry
 import io.github.seggan.sf4k.item.builder.asMaterialType
@@ -2392,14 +2394,17 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         recipeType = RecipeType.NULL
     }
     //</editor-fold>
-    private fun getItem(id: String): ItemStack {
-        return SlimefunItem.getById(id)?.item?.clone() ?: run {
-            InfinityExpansion2.instance.logger.warning("无法找到物品 $id，配方可能存在问题！")
-            ItemStack(Material.BARRIER).apply {
-                itemMeta = itemMeta?.apply {
-                    displayName("§cMissing: $id")
-                }
+private fun getItem(id: String): ItemStack {
+    val sfItem = SlimefunItem.getById(id)
+    return if (sfItem != null) {
+        sfItem.item.clone()
+    } else {
+        InfinityExpansion2.instance.logger.warning("无法找到物品 $id，配方可能存在问题！")
+        ItemStack(Material.BARRIER).apply {
+            itemMeta = itemMeta?.apply {
+                setDisplayName("§cMissing: $id")
             }
         }
     }
+}
 }
