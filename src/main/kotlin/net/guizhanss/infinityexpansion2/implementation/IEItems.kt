@@ -2032,9 +2032,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"EPPPPE"
             +"PACCAP"
             +"PQOOQP"
-            +"V II V"
-            +"V II V"
-            +"V II V"
+            +"VHIIHV"
+            +"VHIIHV"
+            +"VHIIHV"
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
             'P' means MACHINE_PLATE
@@ -2043,6 +2043,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'O' means INFINITY_MACHINE_CORE
             'Q' means QUARRY_3
             'E' means getSlimefunItem("ADVANCED_MACHINE_BLOCK") ?: Material.BARRIER.toItem()
+            'H' means getSlimefunItem("IRIDIUM_PLATE") ?: Material.BARRIER.toItem()
         }
     }
 
