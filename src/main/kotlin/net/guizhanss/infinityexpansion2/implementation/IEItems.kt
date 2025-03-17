@@ -72,6 +72,7 @@ import net.guizhanss.infinityexpansion2.utils.items.builder.buildSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.items.builder.recipes.buildRecipe
 import net.guizhanss.infinityexpansion2.utils.items.getInfinityGearPotionEffects
 import net.guizhanss.infinityexpansion2.utils.items.getInfinityGearProtectionTypes
+import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 
@@ -96,18 +97,18 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         2000, mapOf(
             Material.GOLD_INGOT.toItem() to 1,
             Material.GOLD_BLOCK.toItem() to 9,
-            SlimefunItems.GOLD_4K to 1,
-            SlimefunItems.GOLD_6K to 2,
-            SlimefunItems.GOLD_8K to 3,
-            SlimefunItems.GOLD_10K to 4,
-            SlimefunItems.GOLD_12K to 5,
-            SlimefunItems.GOLD_14K to 6,
-            SlimefunItems.GOLD_16K to 7,
-            SlimefunItems.GOLD_18K to 8,
-            SlimefunItems.GOLD_20K to 9,
-            SlimefunItems.GOLD_22K to 10,
-            SlimefunItems.GOLD_24K to 11,
-            SlimefunItems.GOLD_24K_BLOCK to 99,
+            SlimefunItems.GOLD_4K.toItem() to 1,
+            SlimefunItems.GOLD_6K.toItem() to 2,
+            SlimefunItems.GOLD_8K.toItem() to 3,
+            SlimefunItems.GOLD_10K.toItem() to 4,
+            SlimefunItems.GOLD_12K.toItem() to 5,
+            SlimefunItems.GOLD_14K.toItem() to 6,
+            SlimefunItems.GOLD_16K.toItem() to 7,
+            SlimefunItems.GOLD_18K.toItem() to 8,
+            SlimefunItems.GOLD_20K.toItem() to 9,
+            SlimefunItems.GOLD_22K.toItem() to 10,
+            SlimefunItems.GOLD_24K.toItem() to 11,
+            SlimefunItems.GOLD_24K_BLOCK.toItem() to 99,
         )
     ) {
         material = Material.GOLD_BLOCK.asMaterialType()
@@ -152,7 +153,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         3000, mapOf(
             Material.COPPER_INGOT.toItem() to 1,
             Material.COPPER_BLOCK.toItem() to 9,
-            SlimefunItems.COPPER_INGOT to 1,
+            SlimefunItems.COPPER_INGOT.toItem() to 1,
         )
     ) {
         material = Material.COPPER_BLOCK.asMaterialType()
@@ -162,7 +163,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
 
     val TIN_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
-            SlimefunItems.TIN_INGOT to 1,
+            SlimefunItems.TIN_INGOT.toItem() to 1,
         )
     ) {
         material = Material.IRON_BLOCK.asMaterialType()
@@ -172,7 +173,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
 
     val LEAD_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
-            SlimefunItems.LEAD_INGOT to 1,
+            SlimefunItems.LEAD_INGOT.toItem() to 1,
         )
     ) {
         material = Material.IRON_BLOCK.asMaterialType()
@@ -182,7 +183,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
 
     val SILVER_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
-            SlimefunItems.SILVER_INGOT to 1,
+            SlimefunItems.SILVER_INGOT.toItem() to 1,
         )
     ) {
         material = Material.IRON_BLOCK.asMaterialType()
@@ -192,7 +193,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
 
     val ZINC_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
-            SlimefunItems.ZINC_INGOT to 1,
+            SlimefunItems.ZINC_INGOT.toItem() to 1,
         )
     ) {
         material = Material.IRON_BLOCK.asMaterialType()
@@ -202,7 +203,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
 
     val ALUMINUM_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
-            SlimefunItems.ALUMINUM_INGOT to 1,
+            SlimefunItems.ALUMINUM_INGOT.toItem() to 1,
         )
     ) {
         material = Material.IRON_BLOCK.asMaterialType()
@@ -212,7 +213,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
 
     val MAGNESIUM_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
-            SlimefunItems.MAGNESIUM_INGOT to 1,
+            SlimefunItems.MAGNESIUM_INGOT.toItem() to 1,
         )
     ) {
         material = Material.IRON_BLOCK.asMaterialType()
@@ -224,7 +225,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         500, mapOf(
             Material.DIAMOND.toItem() to 1,
             Material.DIAMOND_BLOCK.toItem() to 9,
-            SlimefunItems.SYNTHETIC_DIAMOND to 1,
+            SlimefunItems.SYNTHETIC_DIAMOND.toItem() to 1,
         )
     ) {
         material = Material.DIAMOND_BLOCK.asMaterialType()
@@ -236,7 +237,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         500, mapOf(
             Material.EMERALD.toItem() to 1,
             Material.EMERALD_BLOCK.toItem() to 9,
-            SlimefunItems.SYNTHETIC_EMERALD to 1,
+            SlimefunItems.SYNTHETIC_EMERALD.toItem() to 1,
         )
     ) {
         material = Material.EMERALD_BLOCK.asMaterialType()
@@ -259,9 +260,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         1500, mapOf(
             Material.COAL.toItem() to 1,
             Material.COAL_BLOCK.toItem() to 9,
-            SlimefunItems.CARBON to 8,
-            SlimefunItems.COMPRESSED_CARBON to 32,
-            SlimefunItems.CARBON_CHUNK to 256,
+            SlimefunItems.CARBON.toItem() to 8,
+            SlimefunItems.COMPRESSED_CARBON.toItem() to 32,
+            SlimefunItems.CARBON_CHUNK.toItem() to 256,
         )
     ) {
         material = Material.COAL_BLOCK.asMaterialType()
@@ -397,11 +398,6 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         material = Material.NETHER_BRICK.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            MAGSTEEL,
-            MAGNESIUM_SINGULARITY,
-            ENDER_ESSENCE,
-        )
         recipe = buildRecipe {
             +"MSE"
             +"   "
@@ -475,10 +471,6 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         material = Material.NETHER_STAR.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            REDSTONE_SINGULARITY, LAPIS_SINGULARITY, QUARTZ_SINGULARITY,
-            MAGNESIUM_SINGULARITY, MAGNONIUM,
-        )
         recipe = buildRecipe {
             +"RLQ"
             +"MG "
@@ -495,10 +487,6 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         material = Material.NETHER_STAR.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            COMPRESSED_COBBLESTONE_4, COAL_SINGULARITY, IRON_SINGULARITY,
-            COPPER_SINGULARITY, LEAD_SINGULARITY,
-        )
         recipe = buildRecipe {
             +"XCI"
             +"OL "
@@ -531,12 +519,6 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         material = Material.IRON_INGOT.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            // @formatter:off
-            EARTH_SINGULARITY, MYTHRIL, FORTUNE_SINGULARITY,
-            MAGIC_SINGULARITY, VOID_INGOT, METAL_SINGULARITY,
-            // @formatter:on
-        )
         recipe = buildRecipe {
             +"EMF"
             +"AVT"
@@ -553,7 +535,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
     // Singularity put here due to load order
     val INFINITY_SINGULARITY by buildSlimefunItem<Singularity>(
         100, mapOf(
-            INFINITY_INGOT to 1,
+            INFINITY_INGOT.toItem() to 1,
         )
     ) {
         material = Material.SMOOTH_QUARTZ.asMaterialType()
@@ -958,8 +940,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'B' means Material.BOOK
         }
 
-        itemModifier = {
+        editItem = {
             it.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 10)
+            it
         }
     }
 
@@ -1049,8 +1032,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'A' means getSlimefunItem("SOULBOUND_PICKAXE") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1070,8 +1054,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'A' means getSlimefunItem("SOULBOUND_AXE") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1091,8 +1076,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'A' means getSlimefunItem("SOULBOUND_SHOVEL") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1112,8 +1098,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'A' means getSlimefunItem("SOULBOUND_HOE") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1155,8 +1142,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'A' means getSlimefunItem("SOULBOUND_HELMET") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1179,8 +1167,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'A' means getSlimefunItem("SOULBOUND_HELMET") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1203,8 +1192,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'A' means getSlimefunItem("SOULBOUND_LEGGINGS") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1227,8 +1217,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'A' means getSlimefunItem("SOULBOUND_BOOTS") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1247,8 +1238,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'I' means INFINITY_INGOT
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1268,8 +1260,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'B' means getSlimefunItem("ELUCIDATOR") ?: Material.BARRIER.toItem()
             'A' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1290,8 +1283,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'A' means getSlimefunItem("SOULBOUND_BOW") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1311,8 +1305,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'A' means getSlimefunItem("SOULBOUND_BOW") ?: Material.BARRIER.toItem()
             'B' means getSlimefunItem("NTW_QUANTUM_STORAGE_8") ?: Material.BARRIER.toItem()
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
     //</editor-fold>

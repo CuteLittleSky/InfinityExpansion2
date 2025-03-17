@@ -1,6 +1,8 @@
 package net.guizhanss.infinityexpansion2.utils.items.builder.recipes
 
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import it.unimi.dsi.fastutil.chars.Char2ObjectOpenHashMap
+import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import kotlin.contracts.ExperimentalContracts
@@ -30,7 +32,12 @@ class RecipeBuilder(private val size: Int) {
         recipe[row++] = this
     }
 
-    // TODO: add infix means for SlimefunItemStack after slimefun 1.21 release
+    /**
+     * Specifies that the given character means a certain [SlimefunItemStack]
+     */
+    infix fun Char.means(item: SlimefunItemStack?) {
+        charMap.put(this, item?.toItem())
+    }
 
     /**
      * Specifies that the given character means a certain [ItemStack]

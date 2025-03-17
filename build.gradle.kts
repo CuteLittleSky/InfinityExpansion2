@@ -24,15 +24,15 @@ repositories {
 dependencies {
     compileOnly(kotlin("stdlib")) // loaded through library loader
     compileOnly(kotlin("reflect")) // loaded through library loader
-    compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
+    compileOnly("it.unimi.dsi:fastutil:8.5.15") // loaded through library loader
+    compileOnly("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
     compileOnly("com.github.SlimefunGuguProject:Slimefun4:-SNAPSHOT")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
-    implementation("net.guizhanss:guizhanlib-all:2.2.0")
+    implementation("net.guizhanss:guizhanlib-all:2.3.0-SNAPSHOT")
     implementation("org.bstats:bstats-bukkit:3.1.0")
-    implementation("it.unimi.dsi:fastutil:8.5.15")
     implementation("com.jeff-media:MorePersistentDataTypes:2.4.0")
-    implementation("io.github.seggan:sf4k:0.8.0") {
+    implementation("io.github.seggan:sf4k:0.8.2") {
         exclude(group = "org.jetbrains.kotlin")
         exclude(group = "com.github.Slimefun")
     }
@@ -61,7 +61,6 @@ tasks.shadowJar {
     doRelocate("org.bstats")
     doRelocate("io.github.seggan.sf4k")
     doRelocate("io.papermc.lib", "paperlib")
-    doRelocate("it.unimi.dsi.fastutil")
     doRelocate("com.jeff_media.morepersistentdatatypes")
     minimize()
     archiveClassifier = ""
@@ -103,8 +102,10 @@ tasks {
             url("https://blob.build/dl/Slimefun4/Dev/latest")
             // SlimeHUD
             url("https://blob.build/dl/SlimeHUD/Dev/latest")
+            // JustEnoughGuide
+            url("https://blob.build/dl/JustEnoughGuide/Dev/latest")
             // GuizhanCraft for testing convenient
-            url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
+            // url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
         }
         jvmArgs("-Dcom.mojang.eula.agree=true")
         minecraftVersion("1.20.6")

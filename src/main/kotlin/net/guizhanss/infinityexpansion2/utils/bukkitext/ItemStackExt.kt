@@ -3,7 +3,6 @@
 package net.guizhanss.infinityexpansion2.utils.bukkitext
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.infinityexpansion2.core.IERegistry
 import org.bukkit.Location
@@ -34,12 +33,6 @@ fun Material.toItem(amount: Int = 1): ItemStack = ItemStack(this, amount)
  * Get a copy of the [ItemStack] with the given amount.
  */
 fun ItemStack.withAmount(amount: Int): ItemStack = clone().apply { this.amount = amount }
-
-/**
- * Get a copy of the [SlimefunItemStack] with the given amount.
- * TODO: rewrite this for sf 1.21 changes
- */
-fun SlimefunItemStack.withAmount(amount: Int): ItemStack = (this as ItemStack).withAmount(amount)
 
 fun ItemStack.withName(name: String): ItemStack = clone().apply {
     val meta = itemMeta

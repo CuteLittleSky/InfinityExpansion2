@@ -19,8 +19,9 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isWaterLogged
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
+import net.guizhanss.infinityexpansion2.utils.compatibility.withAmount
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
+import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.enchantments.Enchantment
@@ -46,7 +47,7 @@ class StrainerBase(
     }
 
     override fun getInputSlots(menu: DirtyChestMenu, item: ItemStack): IntArray {
-        return if (SlimefunItem.getByItem(item) is Strainer) inputSlots
+        return if (getByItem(item) is Strainer) inputSlots
         else intArrayOf()
     }
 
@@ -60,7 +61,7 @@ class StrainerBase(
         if (InfinityExpansion2.sfTickCount() % tickRateSetting.value != 0) return
 
         val strainerItem = menu.getItemInSlot(inputSlots[0])
-        val strainer = SlimefunItem.getByItem(strainerItem) as? Strainer
+        val strainer = getByItem(strainerItem) as? Strainer
         if (strainer == null || strainer.isDisabledIn(b.world)) {
             if (menu.hasViewer()) {
                 menu.replaceExistingItem(LAYOUT.statusSlot, GuiItems.INVALID_INPUT)
@@ -138,6 +139,6 @@ class StrainerBase(
         private val POTATO_FISH = InfinityExpansion2.localization.getItem(
             "POTATO_FISH",
             Material.POTATO
-        )
+        ).toItem()
     }
 }

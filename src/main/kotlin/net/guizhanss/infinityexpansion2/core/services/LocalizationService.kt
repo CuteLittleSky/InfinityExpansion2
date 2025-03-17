@@ -4,9 +4,9 @@ package net.guizhanss.infinityexpansion2.core.services
 
 import io.github.seggan.sf4k.item.builder.MaterialType
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
-import net.guizhanss.guizhanlib.minecraft.utils.ItemUtil
 import net.guizhanss.guizhanlib.slimefun.addon.SlimefunLocalization
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import net.guizhanss.infinityexpansion2.utils.listYmlFilesInJar
 import net.guizhanss.infinityexpansion2.utils.toId
 import net.md_5.bungee.api.ChatMessageType
@@ -59,10 +59,7 @@ class LocalizationService(
 
     // gui items (special items with prefix _UI_)
     fun getGuiItem(item: MaterialType, id: String, vararg extraLore: String): ItemStack =
-        ItemUtil.appendLore(getItem("_UI_${id.toId()}", item.convert()), *extraLore)
-
-    fun getGuiItemName(id: String, vararg args: Any?) = getItemName("_UI_${id.toId()}", *args)
-    fun getGuiItemLore(id: String): List<String> = getItemLore("_UI_${id.toId()}")
+        getItem("_UI_${id.toId()}", item.convert(), *extraLore).toItem()
 
     fun sendMessage(sender: CommandSender, key: String, vararg args: Any) {
         ChatUtil.send(sender, MessageFormat.format(getString("messages.$key"), *args))
