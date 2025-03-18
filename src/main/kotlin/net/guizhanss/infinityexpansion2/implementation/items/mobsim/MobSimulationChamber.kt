@@ -4,10 +4,13 @@ import io.github.schntgaispock.slimehud.util.HudBuilder
 import io.github.schntgaispock.slimehud.waila.HudRequest
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
+import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.libraries.dough.inventory.InvUtils
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
+import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.core.IERegistry
@@ -16,11 +19,9 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyTickingConsu
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
-import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getBlockMenu
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.slimefunext.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
 import org.bukkit.Sound
 import org.bukkit.block.Block
@@ -39,22 +40,28 @@ class MobSimulationChamber(
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick),
     EnergyTickingConsumer, InformationalRecipeDisplayItem {
 
+    private val energyCapacitySetting = IntRangeSetting(this, "energy-capacity", 1, energyPerTick, 1_000_000_000)
+
+    init {
+        addItemSetting(energyCapacitySetting)
+    }
+
     override fun postRegister() {
         super.postRegister()
 
-        // check if consumption is too large (about 2.1b / 100)
-        if (getEnergyConsumptionPerTick() > 20_000_000) {
+        if (getEnergyConsumptionPerTick() > capacity) {
             InfinityExpansion2.log(Level.WARNING, "Invalid item settings for $id:")
             InfinityExpansion2.log(
                 Level.WARNING,
-                "The energy consumption is too large (cannot larger than 20_000_000)."
+                "The base energy consumption is larger than energy capacity."
             )
             InfinityExpansion2.log(Level.WARNING, "Using default value now, please update the config.")
             energyPerTickSetting.update(energyPerTickSetting.defaultValue)
+            energyCapacitySetting.update(energyCapacitySetting.defaultValue)
         }
     }
 
-    override fun getCapacity() = getEnergyConsumptionPerTick() * 100
+    override fun getCapacity() = energyCapacitySetting.value
 
     override fun onNewInstance(menu: BlockMenu, b: Block) {
         val l = b.location
@@ -83,7 +90,7 @@ class MobSimulationChamber(
 
         // handle stackable
         val amount = if (InfinityExpansion2.configService.mobSimAllowStackedCard) cardAmount else 1
-        val energy = getEnergyConsumptionPerTick() + props.energy
+        val energy = getEnergyConsumptionPerTick() + props.energy * amount
 
         if (getCharge(menu.location) < energy) {
             menu.setStatus { GuiItems.NO_POWER }
