@@ -1447,7 +1447,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val TREE_GROWER by buildSlimefunItem<TreeGrower>(36, 600) {
+    val TREE_GROWER by buildSlimefunItem<TreeGrower>(40, 300) {
         material = Material.STRIPPED_OAK_WOOD.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -1463,7 +1463,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val TREE_GROWER_2 by buildSlimefunItem<TreeGrower>(180, 120) {
+    val TREE_GROWER_2 by buildSlimefunItem<TreeGrower>(200, 60) {
         material = Material.STRIPPED_ACACIA_WOOD.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -1479,7 +1479,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val TREE_GROWER_3 by buildSlimefunItem<TreeGrower>(540, 60) {
+    val TREE_GROWER_3 by buildSlimefunItem<TreeGrower>(600, 30) {
         material = Material.STRIPPED_CRIMSON_HYPHAE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -1493,7 +1493,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val TREE_GROWER_4 by buildSlimefunItem<TreeGrower>(2000, 12) {
+    val TREE_GROWER_4 by buildSlimefunItem<TreeGrower>(2500, 6) {
         material = Material.STRIPPED_WARPED_HYPHAE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH

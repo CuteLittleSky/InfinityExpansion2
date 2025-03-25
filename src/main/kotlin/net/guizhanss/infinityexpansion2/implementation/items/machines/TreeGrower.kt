@@ -19,81 +19,81 @@ class TreeGrower(
     init {
         addRecipe(
             Material.OAK_SAPLING.toItem(), arrayOf(
-                Material.OAK_LEAVES.toItem(8),
-                Material.OAK_LOG.toItem(6),
-                Material.STICK.toItem(),
-                Material.APPLE.toItem()
+                Material.OAK_LEAVES.toItem(16),
+                Material.OAK_LOG.toItem(16),
+                Material.STICK.toItem(2),
+                Material.APPLE.toItem(2)
             )
         )
 
         addRecipe(
             Material.SPRUCE_SAPLING.toItem(), arrayOf(
-                Material.SPRUCE_LEAVES.toItem(8),
-                Material.SPRUCE_LOG.toItem(6),
-                Material.STICK.toItem(2)
+                Material.SPRUCE_LEAVES.toItem(16),
+                Material.SPRUCE_LOG.toItem(16),
+                Material.STICK.toItem(4)
             )
         )
 
         addRecipe(
             Material.DARK_OAK_SAPLING.toItem(), arrayOf(
-                Material.DARK_OAK_LEAVES.toItem(8),
-                Material.DARK_OAK_LOG.toItem(6),
-                Material.APPLE.toItem()
+                Material.DARK_OAK_LEAVES.toItem(16),
+                Material.DARK_OAK_LOG.toItem(16),
+                Material.APPLE.toItem(2)
             )
         )
 
         addRecipe(
             Material.BIRCH_SAPLING.toItem(), arrayOf(
-                Material.BIRCH_LEAVES.toItem(8),
-                Material.BIRCH_LOG.toItem(6)
+                Material.BIRCH_LEAVES.toItem(16),
+                Material.BIRCH_LOG.toItem(16)
             )
         )
 
         addRecipe(
             Material.ACACIA_SAPLING.toItem(), arrayOf(
-                Material.ACACIA_LEAVES.toItem(8),
-                Material.ACACIA_LOG.toItem(6)
+                Material.ACACIA_LEAVES.toItem(16),
+                Material.ACACIA_LOG.toItem(16)
             )
         )
 
         addRecipe(
             Material.JUNGLE_SAPLING.toItem(), arrayOf(
-                Material.JUNGLE_LEAVES.toItem(8),
-                Material.JUNGLE_LOG.toItem(6),
-                Material.COCOA_BEANS.toItem()
+                Material.JUNGLE_LEAVES.toItem(16),
+                Material.JUNGLE_LOG.toItem(16),
+                Material.COCOA_BEANS.toItem(3)
             )
         )
 
         addRecipe(
             Material.WARPED_FUNGUS.toItem(), arrayOf(
-                Material.WARPED_HYPHAE.toItem(8),
-                Material.WARPED_STEM.toItem(6),
-                Material.SHROOMLIGHT.toItem()
+                Material.WARPED_HYPHAE.toItem(16),
+                Material.WARPED_STEM.toItem(16),
+                Material.SHROOMLIGHT.toItem(2)
             )
         )
 
         addRecipe(
             Material.CRIMSON_FUNGUS.toItem(), arrayOf(
-                Material.CRIMSON_HYPHAE.toItem(8),
-                Material.CRIMSON_STEM.toItem(6),
-                Material.WEEPING_VINES.toItem()
+                Material.CRIMSON_HYPHAE.toItem(16),
+                Material.CRIMSON_STEM.toItem(16),
+                Material.WEEPING_VINES.toItem(2)
             )
         )
 
         addRecipe(
             Material.MANGROVE_PROPAGULE.toItem(), arrayOf(
-                Material.MANGROVE_LEAVES.toItem(8),
-                Material.MANGROVE_LOG.toItem(6),
-                Material.MANGROVE_ROOTS.toItem(4),
-                Material.MUDDY_MANGROVE_ROOTS.toItem(2)
+                Material.MANGROVE_LEAVES.toItem(16),
+                Material.MANGROVE_LOG.toItem(16),
+                Material.MANGROVE_ROOTS.toItem(8),
+                Material.MUDDY_MANGROVE_ROOTS.toItem(4)
             )
         )
 
         addRecipe(
             Material.CHERRY_SAPLING.toItem(), arrayOf(
-                Material.CHERRY_LEAVES.toItem(8),
-                Material.CHERRY_LOG.toItem(6),
-                Material.STICK.toItem()
+                Material.CHERRY_LEAVES.toItem(16),
+                Material.CHERRY_LOG.toItem(16),
+                Material.STICK.toItem(3)
             )
         )
     }
