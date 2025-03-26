@@ -10,9 +10,10 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.ItemRegistry
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.buildRecipe
 import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
-import net.guizhanss.guizhanlib.kt.slimefun.sf4kext.asMaterialType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
