@@ -4,8 +4,6 @@ package net.guizhanss.infinityexpansion2.implementation
 
 import org.bukkit.inventory.ItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
-import io.github.seggan.sf4k.item.builder.ItemRegistry
-import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
