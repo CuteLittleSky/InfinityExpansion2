@@ -14,7 +14,7 @@ import net.guizhanss.guizhanlib.kt.slimefun.items.builder.buildRecipe
 import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
-import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.guide.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.items.food.CosmicMeatballs
 import net.guizhanss.infinityexpansion2.implementation.items.food.UltimateStew
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityArmor
@@ -694,7 +694,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val INFINITY_CAPACITOR by buildSlimefunItem<Capacitor>(64_000_000) {
+    val INFINITY_CAPACITOR by buildSlimefunItem<Capacitor>(128_000_000) {
         material = HeadTexture.CAPACITOR_25.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = IERecipeTypes.INFINITY_WORKBENCH

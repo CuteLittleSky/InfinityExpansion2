@@ -20,21 +20,21 @@ import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
 import net.guizhanss.guizhanlib.kt.slimefun.extensions.position
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getBlockMenu
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getBoolean
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getInt
+import net.guizhanss.guizhanlib.kt.slimefun.utils.setBoolean
+import net.guizhanss.guizhanlib.kt.slimefun.utils.setInt
 import net.guizhanss.guizhanlib.slimefun.machines.MenuBlock
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.annotations.HudProvider
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.persistent.PersistentStorageCacheType
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import net.guizhanss.infinityexpansion2.utils.items.isSimilar
 import net.guizhanss.infinityexpansion2.utils.items.removeDisplayItem
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getBlockMenu
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getBoolean
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
-import net.guizhanss.infinityexpansion2.utils.slimefunext.setBoolean
-import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
 import org.bukkit.Location
 import org.bukkit.Material
@@ -299,7 +299,7 @@ class StorageUnit(
     override fun canStack(meta1: ItemMeta, meta2: ItemMeta) =
         meta1.persistentDataContainer == meta2.persistentDataContainer
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         capacityItem(capacity)
     )
 
@@ -319,7 +319,7 @@ class StorageUnit(
         const val BS_VOID = "void_excess"
 
         // PDC key
-        val STORAGE_KEY = "storage".createKey()
+        val STORAGE_KEY = ie2Key("storage")
 
         // gui items
         private val ACTIONS_INV_ITEM = InfinityExpansion2.localization.getGuiItem(
@@ -447,7 +447,7 @@ class StorageUnit(
 
         @Suppress("unused")
         fun hudHandler(request: HudRequest): String {
-            val menu = request.location.getBlockMenu() ?: return "Unknown"
+            val menu = request.location.getBlockMenu()
             val storage = request.slimefunItem as StorageUnit
             val cache = storage.caches[menu.position] ?: return "Invalid Storage Unit"
 
