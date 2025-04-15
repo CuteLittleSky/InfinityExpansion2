@@ -2017,7 +2017,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val QUARRY_3 by buildSlimefunItem<Quarry>(3600, 4, 0.5) {
+    val QUARRY_3 by buildSlimefunItem<Quarry>(3600, 4, 0.30) {
         material = Material.CHISELED_NETHER_BRICKS.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
