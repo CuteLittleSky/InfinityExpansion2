@@ -79,7 +79,7 @@ class InfinityExpansion2 : AbstractAddon(
 
         // localization
         log(Level.INFO, "Loading language...")
-        val lang = configService.lang
+        val lang = configService.lang.value
         localization = LocalizationService(this, file)
         localization.idPrefix = "IE_"
         localization.addLanguage(lang)
@@ -93,10 +93,9 @@ class InfinityExpansion2 : AbstractAddon(
 
         // item setup
         IEItems
-        MobSimulationSetup
 
         // researches setup
-        if (configService.enableResearches) {
+        if (configService.enableResearches.value) {
             ResearchSetup
         }
 
@@ -157,7 +156,7 @@ class InfinityExpansion2 : AbstractAddon(
     private fun setupMetrics() {
         val metrics = Metrics(this, 23025)
 
-        metrics.addCustomChart(SimplePie("auto_update") { configService.autoUpdate.toString() })
+        metrics.addCustomChart(SimplePie("autoUpdate") { configService.autoUpdate.value.toString() })
     }
 
     companion object {
@@ -190,7 +189,7 @@ class InfinityExpansion2 : AbstractAddon(
         }
 
         fun debug(message: String) {
-            if (!Companion::configService.isInitialized || !configService.debug) {
+            if (!Companion::configService.isInitialized || !configService.debug.value) {
                 return
             }
             log(Level.INFO, "[DEBUG] $message")

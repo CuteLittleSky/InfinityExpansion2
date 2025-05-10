@@ -1,5 +1,8 @@
 import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.time.Instant
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 
 plugins {
     kotlin("jvm") version "2.1.20"
@@ -11,7 +14,10 @@ plugins {
 group = "net.guizhanss"
 description = "InfinityExpansion2"
 
+val timestamp: String = DateTimeFormatter.ofPattern("yyMMddHHmm").withZone(ZoneOffset.UTC).format(Instant.now())
 val mainPackage = "net.guizhanss.infinityexpansion2"
+
+version = "UNOFFICIAL-$timestamp"
 
 repositories {
     mavenCentral()
@@ -25,7 +31,7 @@ dependencies {
     compileOnly(kotlin("stdlib")) // loaded through library loader
     compileOnly(kotlin("reflect")) // loaded through library loader
     compileOnly("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
-    compileOnly("com.github.slimefun:Slimefun4:3ea21da4fe")
+    compileOnly("com.github.slimefun:Slimefun4:5374034c87")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
     implementation("net.guizhanss:guizhanlib-all:2.3.0")
@@ -69,7 +75,7 @@ bukkit {
     description = "More Slimefun content"
     depend = listOf("Slimefun")
     softDepend = listOf("GuizhanLibPlugin", "SlimefunTranslation", "InfinityExpansion", "SlimeHUD")
-    loadBefore = listOf("SlimeCustomizer", "RykenSlimeCustomizer")
+    loadBefore = listOf("SlimeCustomizer", "RykenSlimeCustomizer", "SlimeFunRecipe")
 
     commands {
         register("infinityexpansion2") {
@@ -99,7 +105,7 @@ tasks {
             // SlimeHUD
             url("https://blob.build/dl/SlimeHUD/Dev/latest")
             // JustEnoughGuide
-            url("https://blob.build/dl/JustEnoughGuide/Dev/latest")
+//            url("https://blob.build/dl/JustEnoughGuide/Dev/latest")
             // GuizhanCraft for testing convenient
             url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
         }
