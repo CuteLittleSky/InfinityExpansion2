@@ -26,6 +26,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.generators.Infinity
 import net.guizhanss.infinityexpansion2.implementation.items.generators.InfinitySingularityReactor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.AdvancedAnvil
 import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
+import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblestoneGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.DustExtractor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ExtremeFreezer
@@ -34,7 +35,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.GearTransf
 import net.guizhanss.infinityexpansion2.implementation.items.machines.GeoQuarry
 import net.guizhanss.infinityexpansion2.implementation.items.machines.InfinityWorkbench
 import net.guizhanss.infinityexpansion2.implementation.items.machines.IngotFormer
-import net.guizhanss.infinityexpansion2.implementation.items.machines.MaterialGenerator
+import net.guizhanss.infinityexpansion2.implementation.items.machines.ObsidianGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Quarry
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ResourceSynthesizer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.SingularityConstructor
@@ -1315,7 +1316,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
     //</editor-fold>
 
     //<editor-fold desc="Machines" defaultstate="collapsed">
-    val COBBLESTONE_GENERATOR by buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 1, 24) {
+    val COBBLESTONE_GENERATOR by buildSlimefunItem<CobblestoneGenerator>(Material.COBBLESTONE, 1, 24) {
         material = Material.SMOOTH_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -1332,7 +1333,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val COBBLESTONE_GENERATOR_2 by buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 4, 120) {
+    val COBBLESTONE_GENERATOR_2 by buildSlimefunItem<CobblestoneGenerator>(Material.COBBLESTONE, 4, 120) {
         material = Material.SMOOTH_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -1348,7 +1349,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val COBBLESTONE_GENERATOR_3 by buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 16, 360) {
+    val COBBLESTONE_GENERATOR_3 by buildSlimefunItem<CobblestoneGenerator>(Material.COBBLESTONE, 16, 360) {
         material = Material.SMOOTH_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -1365,7 +1366,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val COBBLESTONE_GENERATOR_4 by buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 64, 800) {
+    val COBBLESTONE_GENERATOR_4 by buildSlimefunItem<CobblestoneGenerator>(Material.COBBLESTONE, 64, 800) {
         material = Material.SMOOTH_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
@@ -1449,7 +1450,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val TREE_GROWER by buildSlimefunItem<TreeGrower>(40, 300) {
+    val TREE_GROWER by buildSlimefunItem<TreeGrower>(36, 300) {
         material = Material.STRIPPED_OAK_WOOD.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -1465,7 +1466,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val TREE_GROWER_2 by buildSlimefunItem<TreeGrower>(200, 60) {
+    val TREE_GROWER_2 by buildSlimefunItem<TreeGrower>(180, 60) {
         material = Material.STRIPPED_ACACIA_WOOD.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -1481,7 +1482,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val TREE_GROWER_3 by buildSlimefunItem<TreeGrower>(600, 30) {
+    val TREE_GROWER_3 by buildSlimefunItem<TreeGrower>(540, 30) {
         material = Material.STRIPPED_CRIMSON_HYPHAE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -1495,7 +1496,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val TREE_GROWER_4 by buildSlimefunItem<TreeGrower>(2500, 6) {
+    val TREE_GROWER_4 by buildSlimefunItem<TreeGrower>(2000, 10) {
         material = Material.STRIPPED_WARPED_HYPHAE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
@@ -1761,7 +1762,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val OBSIDIAN_GENERATOR by buildSlimefunItem<MaterialGenerator>(Material.OBSIDIAN, 1, 240) {
+    val OBSIDIAN_GENERATOR by buildSlimefunItem<ObsidianGenerator>(Material.OBSIDIAN, 1, 240) {
         material = Material.SMOOTH_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -2308,7 +2309,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val INFINITY_SINGULARITY_REACTOR by buildSlimefunItem<InfinitySingularityReactor>(180_000) {
+    val INFINITY_SINGULARITY_REACTOR by buildSlimefunItem<InfinitySingularityReactor>(300_000) {
         material = Material.BEACON.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = IERecipeTypes.INFINITY_WORKBENCH

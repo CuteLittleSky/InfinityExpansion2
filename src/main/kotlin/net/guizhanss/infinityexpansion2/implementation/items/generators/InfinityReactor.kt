@@ -3,7 +3,6 @@
 package net.guizhanss.infinityexpansion2.implementation.items.generators
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
@@ -14,6 +13,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.MachineLore
@@ -29,7 +29,9 @@ class InfinityReactor(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     defaultProduction: Int,
-) : AbstractReactor(itemGroup, itemStack, recipeType, recipe, defaultProduction) {
+) : AbstractReactor(itemGroup, itemStack, recipeType, recipe, defaultProduction), CustomWikiItem {
+
+    override val wikiUrl = "generators/infinity-reactor"
 
     private val voidIngotDurationSetting =
         IntRangeSetting(this, "void-ingot-duration", 1, 28_800, Int.MAX_VALUE) // 4 hours
@@ -122,8 +124,8 @@ class InfinityReactor(
         return getEnergyProduction()
     }
 
-    private fun ItemStack.isVoidIngot() = SlimefunItem.getByItem(this)?.id == IEItems.VOID_INGOT.itemId
-    private fun ItemStack.isInfinityIngot() = SlimefunItem.getByItem(this)?.id == IEItems.INFINITY_INGOT.itemId
+    private fun ItemStack.isVoidIngot() = getByItem(this)?.id == IEItems.VOID_INGOT.itemId
+    private fun ItemStack.isInfinityIngot() = getByItem(this)?.id == IEItems.INFINITY_INGOT.itemId
 
     private fun BlockMenu.setStatus(itemStack: () -> ItemStack) {
         if (hasViewer()) {

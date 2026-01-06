@@ -57,7 +57,7 @@ abstract class AbstractTickingActionMachine(
     override fun getEnergyComponentType() = EnergyNetComponentType.CONSUMER
 
     override fun tick(b: Block, menu: BlockMenu) {
-        if (!shouldRun()) return
+        if (tickCount % getCustomTickRate() != 0) return
         if (getCharge(menu.location) < getEnergyConsumptionPerAction()) {
             menu.setStatus { GuiItems.NO_POWER }
         } else if (process(b, menu)) {

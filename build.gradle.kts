@@ -5,10 +5,10 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 plugins {
-    kotlin("jvm") version "2.1.20"
-    id("com.gradleup.shadow") version "8.3.6"
-    id("de.eldoria.plugin-yml.bukkit") version "0.7.1"
-    id("xyz.jpenilla.run-paper") version "2.3.1"
+    kotlin("jvm") version "2.2.21"
+    id("com.gradleup.shadow") version "9.3.0"
+    id("de.eldoria.plugin-yml.bukkit") version "0.8.0"
+    id("xyz.jpenilla.run-paper") version "3.0.2"
 }
 
 group = "net.guizhanss"
@@ -17,12 +17,12 @@ description = "InfinityExpansion2"
 val timestamp: String = DateTimeFormatter.ofPattern("yyMMddHHmm").withZone(ZoneOffset.UTC).format(Instant.now())
 val mainPackage = "net.guizhanss.infinityexpansion2"
 
-version = "UNOFFICIAL-$timestamp"
+version = "preview-$timestamp"
 
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
-    maven("https://s01.oss.sonatype.org/content/groups/public/")
+    maven("https://central.sonatype.com/repository/maven-snapshots/")
     maven("https://repo.alessiodp.com/releases/")
     maven("https://jitpack.io")
 }
@@ -31,11 +31,11 @@ dependencies {
     compileOnly(kotlin("stdlib")) // loaded through library loader
     compileOnly(kotlin("reflect")) // loaded through library loader
     compileOnly("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
-    compileOnly("com.github.slimefun:Slimefun4:5374034c87")
+    compileOnly("com.github.slimefun:Slimefun4:experimental-SNAPSHOT")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
-    implementation("net.guizhanss:guizhanlib-all:2.3.0")
-    implementation("net.guizhanss:guizhanlib-kt-all:0.2.0-SNAPSHOT")
+    implementation("net.guizhanss:guizhanlib-all:2.4.0-SNAPSHOT")
+    implementation("net.guizhanss:guizhanlib-kt-all:0.2.0")
     implementation("org.bstats:bstats-bukkit:3.1.0")
     implementation("com.jeff-media:MorePersistentDataTypes:2.4.0")
 }
@@ -92,6 +92,9 @@ bukkit {
             default = BukkitPluginDescription.Permission.Default.TRUE
         }
         register("infinityexpansion2.command.printitem") {
+            default = BukkitPluginDescription.Permission.Default.OP
+        }
+        register("infinityexpansion2.command.id") {
             default = BukkitPluginDescription.Permission.Default.OP
         }
     }

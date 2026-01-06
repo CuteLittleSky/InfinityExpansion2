@@ -1,8 +1,8 @@
+## InfinityExpansion2 main configuration file
+## Visit wiki for more details: https://docs.ybw0014.dev/infinity-expansion-2/config/main
+
 # You should enable this to get bug fixes and receive support
 auto-update: true
-
-# Whether to enable the debug logs
-debug: false
 
 # The default language of the plugin
 # SlimefunTranslation is supported.
@@ -11,10 +11,18 @@ lang: en
 # Whether to enable researches in the plugin
 enable-researches: false
 
+# Debug options
+debug:
+  # Whether to enable debug logs
+  enabled: false
+
+  # Debug cases to enable on server startup. Case-insensitive.
+  cases: []
+
 # Singularity options
 singularity:
-  # The cost multiplier for singularity crafting
-  # Range: 0.0 to 1000.0, default: 1.0
+  # The global cost multiplier for singularity crafting
+  # range: 0.0 to 1000.0, default: 1.0
   cost-multiplier: 1.0
 
 # Gear transformer options
@@ -78,11 +86,12 @@ mob-simulation:
   # Whether cards can be stackable.
   # When enabled, the product will be multiplied by the amount of cards. The energy consumption is also multiplied.
   # When disabled, multiple cards always produce 1x.
-  # Tip: when enabled, you can change the energy capacity of Mob Simulation Chamber accordingly.
+  # Tip: when enabled, you may have to change the energy capacity of Mob Simulation Chamber accordingly,
+  #   since stacked cards may exceed the energy capacity and the chamber will always complain about not enough energy.
   allow-stacked-card: false
 
-  # The experience multiplier for mob simulation
-  # Range: 0.0 to 1000.0
+  # The multiplier for the experience given by mob simulation.
+  # range: 0.0 to 1000.0, default: 1.0
   exp-multiplier: 1.0
 
   # Whether to use the legacy output mode in InfinityExpansion.
@@ -106,6 +115,12 @@ storage:
 
   # The interval of updating the holograms in Slimefun ticks.
   hologram-update-interval: 20
+
+  # The list of additional items that cannot be stored into storage units.
+  # This will not affect the items that are already stored, but new items cannot be stored.
+  # Bundles, shulker boxes, and IE2 Storage Units are hardcoded blocked and cannot be changed.
+  #
+  blocked-items: []
 
 # Quarry options
 quarry:
@@ -187,22 +202,26 @@ advanced-anvil:
 
 # Infinity gear options
 #
-# `unbreakable` is a boolean value that determines whether the gear is unbreakable.
+# Each section represents a type of gear, and each section has the following sub-sections:
+# - `unbreakable`: Whether the gear is unbreakable.
+# - `enchantments`: A map of enchantments and their levels.
+# - `potion-effects`: (Only works on armor) A map of potion effects and their amplifiers.
+# - `protections`: (Only works on armor) A list of protection types.
 #
 # Due to how the config file is processed, you cannot remove pre-defined fields.
+#
+# Enchantment: https://jd.papermc.io/paper/1.20.6/org/bukkit/enchantments/Enchantment.html (change the version in url to match your server version)
 # To disable a pre-defined enchantment, set its level to 0.
-# Enchantment: https://jd.papermc.io/paper/1.20.6/org/bukkit/enchantments/Enchantment.html
 #
-# Unbreakable and enchantments only affect new gears, not existing ones.
-#
-# The value represents the amplifier, which is the level of the potion effect - 1. (e.g. haste: 2 means Haste III in game)
-# To disable a pre-defined potion effect, set its amplifier to a negative number (like -1).
 # PotionEffectType: https://jd.papermc.io/paper/1.20.6/org/bukkit/potion/PotionEffectType.html
+# The amplifier represents is how many levels added to the potion effect. (e.g. haste: 2 means Haste III in game)
+# To disable a pre-defined potion effect, set its amplifier to a negative number (like -1).
 #
-# Protections can be found here:
-# https://github.com/GuizhanCraft/InfinityExpansion2/blob/master/src/main/kotlin/net/guizhanss/infinityexpansion2/core/items/attributes/ProtectionType.kt
+# ProtectionType: https://github.com/GuizhanCraft/InfinityExpansion2/blob/master/src/main/kotlin/net/guizhanss/infinityexpansion2/core/items/attributes/ProtectionType.kt
 #
-# Potion effects and protections affect both pre-defined and new gears.
+# Changing `unbreakable` and `enchantments` will only affect new gears, not the already made gears.
+# Changing `potion-effects` and `protections` affect both pre-defined and new gears.
+#
 infinity-gear:
   sword:
     unbreakable: true

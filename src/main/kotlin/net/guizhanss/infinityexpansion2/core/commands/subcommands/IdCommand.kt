@@ -1,6 +1,6 @@
 package net.guizhanss.infinityexpansion2.core.commands.subcommands
 
-import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import net.guizhanss.guizhanlib.minecraft.commands.AbstractCommand
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.commands.AbstractSubCommand
@@ -8,10 +8,10 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 /**
- * Same as `/paper dumpitem`.
+ * Get the ID of handheld item.
  */
-class PrintItemCommand(parent: AbstractCommand) : AbstractSubCommand(
-    parent, "printitem", ""
+class IdCommand(parent: AbstractCommand) : AbstractSubCommand(
+    parent, "id", ""
 ) {
 
     override fun onExecute(p: CommandSender, args: Array<String>) {
@@ -24,15 +24,24 @@ class PrintItemCommand(parent: AbstractCommand) : AbstractSubCommand(
             return
         }
 
-        val item = p.inventory.itemInMainHand
-
-        if (item.isAir()) {
-            InfinityExpansion2.integrationService.sendMessage(p, "commands.commands.printitem.no-item")
+        val handItem = p.inventory.itemInMainHand
+        val sfItem = SlimefunItem.getByItem(handItem) ?: run {
+            InfinityExpansion2.integrationService.sendMessage(p, "commands.invalid-item")
             return
         }
+        InfinityExpansion2.integrationService.sendMessage(
+            p,
+            "commands.id.message",
+            InfinityExpansion2.integrationService.getTranslatedItemName(p, sfItem.item),
+        )
 
-        p.sendMessage(item.toString())
     }
 
-    override fun onTab(sender: CommandSender, args: Array<String>): List<String> = emptyList()
+    override fun onTab(sender: CommandSender, args: Array<String>): List<String> {
+        return emptyList()
+    }
 }
+
+
+
+

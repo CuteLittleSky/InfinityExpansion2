@@ -8,6 +8,7 @@ import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater
 import net.guizhanss.infinityexpansion2.core.commands.MainCommand
 import net.guizhanss.infinityexpansion2.core.services.ConfigService
+import net.guizhanss.infinityexpansion2.core.services.DebugService
 import net.guizhanss.infinityexpansion2.core.services.IntegrationService
 import net.guizhanss.infinityexpansion2.core.services.LocalizationService
 import net.guizhanss.infinityexpansion2.implementation.IEItems
@@ -18,7 +19,6 @@ import net.guizhanss.infinityexpansion2.implementation.listeners.InfinityMatrixL
 import net.guizhanss.infinityexpansion2.implementation.listeners.SlimefunRegistryListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.VeinMinerListener
-import net.guizhanss.infinityexpansion2.implementation.setup.MobSimulationSetup
 import net.guizhanss.infinityexpansion2.implementation.setup.ResearchSetup
 import net.guizhanss.infinityexpansion2.implementation.tasks.InfinityMatrixTask
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
@@ -34,7 +34,8 @@ class InfinityExpansion2 : AbstractAddon(
 
     override fun load() {
         // check if there is central repo prop defined
-        val centralRepo = System.getProperty("centralRepository") ?: "https://repo1.maven.org/maven2/"
+        val centralRepo =
+            System.getProperty("centralRepository") ?: "https://maven-central.storage-download.googleapis.com/maven2/"
 
         logger.info("Loading libraries, please wait...")
         logger.info("If you stuck here for a long time, try to specify a mirror repository.")
@@ -44,10 +45,10 @@ class InfinityExpansion2 : AbstractAddon(
         val manager = BukkitLibraryManager(this)
         manager.addRepository(centralRepo)
         manager.loadLibrary(
-            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-stdlib").version("2.1.20").build()
+            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-stdlib").version("2.2.21").build()
         )
         manager.loadLibrary(
-            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-reflect").version("2.1.20").build()
+            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-reflect").version("2.2.21").build()
         )
 
         logger.info("Loaded all required libraries.")
@@ -71,8 +72,9 @@ class InfinityExpansion2 : AbstractAddon(
 //            return
 //        }
 
-        // config
+        // config & debug
         configService = ConfigService(this)
+        debugService = DebugService(this)
 
         // tags
         IETag.reloadAll()
@@ -133,7 +135,7 @@ class InfinityExpansion2 : AbstractAddon(
                     String::class.java
                 )
                 updaterStart.invoke(null, this, file, githubUser, githubRepo, githubBranch)
-            } catch (ignored: Exception) {
+            } catch (_: Exception) {
                 // use updater in lib
                 GuizhanBuildsUpdater.start(this, file, githubUser, githubRepo, githubBranch)
             }
@@ -171,6 +173,8 @@ class InfinityExpansion2 : AbstractAddon(
             private set
         lateinit var configService: ConfigService
             private set
+        lateinit var debugService: DebugService
+            private set
         lateinit var localization: LocalizationService
             private set
         lateinit var integrationService: IntegrationService
@@ -178,21 +182,12 @@ class InfinityExpansion2 : AbstractAddon(
 
         fun scheduler() = getScheduler()
 
-        fun sfTickCount() = getSlimefunTickCount()
-
         fun log(level: Level, message: String) {
             instance.logger.log(level, message)
         }
 
         fun log(level: Level, ex: Throwable, message: String) {
             instance.logger.log(level, ex) { message }
-        }
-
-        fun debug(message: String) {
-            if (!Companion::configService.isInitialized || !configService.debug.value) {
-                return
-            }
-            log(Level.INFO, "[DEBUG] $message")
         }
     }
 }

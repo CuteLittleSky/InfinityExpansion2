@@ -1,4 +1,4 @@
-package net.guizhanss.infinityexpansion2.implementation.items.machines
+package net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
@@ -7,13 +7,12 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
-import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
 
-class MaterialGenerator(
+open class MaterialGenerator(
     itemGroup: ItemGroup,
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
@@ -21,8 +20,9 @@ class MaterialGenerator(
     val material: Material,
     val speed: Int,
     energyPerTick: Int,
-) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY_ONE_ROW, energyPerTick),
-    InformationalRecipeDisplayItem {
+) : AbstractTickingMachine(
+    itemGroup, itemStack, recipeType, recipe, MenuLayout.Companion.OUTPUT_ONLY_ONE_ROW, energyPerTick
+), InformationalRecipeDisplayItem {
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
         val output = material.toItem(speed)
