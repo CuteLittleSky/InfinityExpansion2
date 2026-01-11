@@ -39,8 +39,8 @@ object InfinityExpansion2API {
         val card = MobDataCard.create(displayItem, props.recipe, props)
         card.register(addon)
         // in case autoloading is not yet enabled but item is registered
-        if (!Slimefun.getRegistry().isAutoLoadingEnabled) {
-            card.load()
-        }
+        // if (!Slimefun.getRegistry().isAutoLoadingEnabled) {
+        card.load()
+        // }
     }
 }
